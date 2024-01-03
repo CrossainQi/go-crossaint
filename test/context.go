@@ -1,3 +1,4 @@
+// context中要重点关注Done方法和cancelFunc方法，Done方法负责接受上游结束的通知，cancelFunc方法负责通知下游结束
 package main
 
 import (
