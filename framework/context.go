@@ -36,6 +36,18 @@ func (ctx Context) GetRequest() *http.Request {
 	return ctx.request
 }
 
+func (ctx Context) GetResponse() http.ResponseWriter {
+	return ctx.response
+}
+
+func (ctx Context) SetHasTimeout() {
+	ctx.hasTimeout = true
+}
+
+func (ctx Context) HasTimeout() bool {
+	return ctx.hasTimeout
+}
+
 func (ctx *Context) BaseContext() context.Context {
 	return ctx.request.Context()
 }
