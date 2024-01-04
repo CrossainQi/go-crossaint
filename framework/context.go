@@ -4,6 +4,7 @@ import (
 	"context"
 	"net/http"
 	"sync"
+	"time"
 )
 
 // 自定义context
@@ -54,4 +55,16 @@ func (ctx *Context) BaseContext() context.Context {
 
 func (ctx Context) Done() <-chan struct{} {
 	return ctx.BaseContext().Done()
+}
+
+func (ctx Context) Deadline() (deadline time.Time, ok bool) {
+	return ctx.BaseContext().Deadline()
+}
+
+func (ctx Context) Err() error {
+	return ctx.BaseContext().Err()
+}
+
+func (ctx Context) Value(key interface{}) interface{} {
+	return ctx.BaseContext().Value(key)
 }
